@@ -5,8 +5,6 @@ import Link from "next/link";
 import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
 import { AiFillLinkedin, AiFillGithub, AiOutlineArrowDown, AiFillRocket } from "react-icons/ai";
 import Avatar from "../images/profile.png";
-import LogoLight from "../images/logo-light.png";
-import LogoDark from "../images/logo-dark.png";
 
 import { useTheme } from 'next-themes';
 import { useRef } from 'react';
@@ -57,18 +55,21 @@ export default function Home() {
               </li>
             </ul>
           </nav>
-          <section className="px-10 flex flex-col justify-center gap-10 h-screen w-full">
-            <div className="flex flex-col items-center py-6">
-              <h1 className="text-5xl py-2 dark:text-gray-200 font-semibold md:text-6xl text-gray-600 absolute top-64">I'm <span className="text-teal-500">Alex Mot</span>,</h1>
-              <h2 className="text-5xl py-2 md:text-6xl text-gray-700 dark:text-gray-200 font-normal px-10 w-full h-30 text-center absolute top-1/3">Passionate about <TypeAnimation /></h2>
-              <p className="text-lg py-5 leading-8 text-gray-400 text-center md:text-xl pt-50 w-full mt-40">
+          <section className="px-10 flex flex-col h-screen w-screen">
+            <div className="flex flex-col items-center">
+              <div className="flex flex-col w-full mt-14">
+                <h1 className="text-5xl dark:text-gray-200 font-semibold md:text-6xl text-gray-600 text-center">I'm <span className="text-teal-500">Alex Mot</span>,</h1>
+                <h2 className="text-5xl md:text-6xl text-gray-700 dark:text-gray-200 font-normal px-10 w-full h-30 text-center">Interested in <TypeAnimation /></h2>
+              </div>
+              
+              <p className="text-lg py-5 px-10 leading-8 text-gray-400 text-center md:text-xl absolute bottom-1/3 w-full">
                 Freelancer providing services for programming and design content needs. Join me down below and let's get cracking!
               </p>
             </div>
 
-            <div className="text-5xl flex justify-center gap-16 w-full text-gray-600">
-              <Link href="https://github.com/alexandrumot" className="hover:text-black transition duration-500 md:scale-110 lg:scale-125 dark:text-gray-200 dark:hover:text-gray-400"><AiFillGithub /></Link>
-              <Link href="https://www.linkedin.com/in/alexandru-mo%C8%9B-b119021ba/" className="hover:text-black transition duration-500 md:scale-110 lg:scale-125 dark:text-gray-200 dark:hover:text-gray-400"><AiFillLinkedin /></Link>
+            <div className="text-5xl text-gray-600 absolute bottom-40 flex justify-center gap-16 left-0 w-full">
+              <a href="https://github.com/alexandrumot" className="hover:text-black transition duration-500 md:scale-110 lg:scale-125 dark:text-gray-200 dark:hover:text-gray-400"><AiFillGithub /></a>
+              <a href="https://www.linkedin.com/in/alexandru-mo%C8%9B-b119021ba/" className="hover:text-black transition duration-500 md:scale-110 lg:scale-125 dark:text-gray-200 dark:hover:text-gray-400"><AiFillLinkedin /></a>
             </div>
 
             <div className="flex justify-center items-center ">
@@ -78,12 +79,11 @@ export default function Home() {
             </div>
             
           </section>
-          {/* <hr class="my-8 h-px w-5/6 float-right bg-gray-300 border-0 dark:bg-gray-500" /> */}
           <section className="px-10 ">
             <div className="py-5 mt-96 flex flex-col items-center gap-20">
               <h3 ref={ref} className="text-3xl py-1 dark:text-gray-200">About</h3>
-              <hr class="mb-6 rounded-xl h-1 w-4/6 bg-gray-200 border-0 dark:bg-gray-700" />
-              <Image src={Avatar} alt="Avatar" className="rounded-full w-full md:w-60"/>
+              <hr class="mb-6 rounded-xl h-1 w-5/6 bg-gray-200 border-0 dark:bg-gray-700" />
+              <Image src={Avatar} alt="Avatar" className="rounded-full w-72 md:w-96"/>
               <p className="text-lg py-2 leading-8 text-gray-400 md:text-xl">
                 Since the beginning of my journey as a freelance <span className="text-teal-500">front-end developer</span>, I've done remote work for major companies.
               </p>
