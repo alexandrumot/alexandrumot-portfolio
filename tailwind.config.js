@@ -9,6 +9,9 @@ module.exports = {
     extend: {
       fontFamily: {
         kanit: "Kanit"
+      },
+      scale: {
+        '300': '3',
       }
     },
   },

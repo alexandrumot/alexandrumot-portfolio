@@ -1,35 +1,19 @@
 import Head from "next/head"
-import Image from "next/image";
-import Link from "next/link";
 
-import { BsFillMoonFill, BsFillSunFill } from "react-icons/bs";
-import { AiFillLinkedin, AiFillGithub, AiOutlineArrowDown, AiFillRocket } from "react-icons/ai";
-import Avatar from "../images/profile.png";
-
-import { useTheme } from 'next-themes';
 import { useRef } from 'react';
 
-import TypeAnimation from "../components/TypeAnimation";
-
+import Start from "../components/sections/Start";
+import About from "../components/sections/About";
+import Navbar from "../components/sections/Navbar";
+import Projects from "../components/sections/Projects";
+import Contact from "../components/sections/Contact";
 
 export default function Home() {
-  const { systemTheme, theme, setTheme } = useTheme()
-  const ref = useRef(null);
+  const refs = useRef([]);
 
-  const handleThemeToggle = () => {
-    const currentTheme = theme === "system" ? systemTheme : theme;
-    if (currentTheme === "dark") {
-      return (
-        <BsFillSunFill className="transition duration-300 cursor-pointer text-2xl text-gray-200 hover:text-gray-300 hover:rotate-45" onClick={() => setTheme("light")}/>
-      )
-    } else if (currentTheme === "light") {
-      return (
-        <BsFillMoonFill className="transition duration-300 cursor-pointer text-2xl text-black hover:text-gray-700 hover:-rotate-12" onClick={() => setTheme("dark")}/>
-      )
-    }
-  }
-  const handleScroll = () => {
-    ref.current?.scrollIntoView({behavior: 'smooth'});
+  const handleScrollToSection = (index) => {
+    console.log(refs.current[index])
+    refs.current[index]?.scrollIntoView({behavior: 'smooth'});
   }
 
   return (
@@ -41,55 +25,11 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
         <main className="bg-white  dark:bg-gray-800 h-full">
-          <nav className="p-10 flex justify-between items-center h-10">
-            <div className="cursor-pointer hover:scale-125 transition rotate-45 hover:rotate-180 dark:text-gray-200 text-3xl" >
-              <AiFillRocket />
-            </div>
-            {/* <h1 className="text-xl dark:text-gray-200 cursor-pointer"><code>&#60;<span className=" text-teal-500">h1</span>&#62;Hackerutz&#60;/<span className=" text-teal-500">h1</span>&#62;</code></h1> */}
-            <ul className="flex items-center">
-              <li>
-                {handleThemeToggle()}
-              </li>
-              <li>
-                <button className="touch-manipulation rounded-md bg-gradient-to-tr from-teal-500 to-cyan-600 px-4 py-2 uppercase text-white shadow-black transition duration-500 hover:bg-right-top hover:drop-shadow-lg active:scale-95 ml-6 md:ml-8 lg:ml-12" href="#">Resume</button>
-              </li>
-            </ul>
-          </nav>
-          <section className="px-10 flex flex-col h-screen w-screen">
-            <div className="flex flex-col items-center">
-              <div className="flex flex-col w-full mt-14">
-                <h1 className="text-5xl dark:text-gray-200 font-semibold md:text-6xl text-gray-600 text-center">I'm <span className="text-teal-500">Alex Mot</span>,</h1>
-                <h2 className="text-5xl md:text-6xl text-gray-700 dark:text-gray-200 font-normal px-10 w-full h-30 text-center">Interested in <TypeAnimation /></h2>
-              </div>
-              
-              <p className="text-lg py-5 px-10 leading-8 text-gray-400 text-center md:text-xl absolute bottom-1/3 w-full">
-                Freelancer providing services for programming and design content needs. Join me down below and let's get cracking!
-              </p>
-            </div>
-
-            <div className="text-5xl text-gray-600 absolute bottom-40 flex justify-center gap-16 left-0 w-full">
-              <a href="https://github.com/alexandrumot" className="hover:text-black transition duration-500 md:scale-110 lg:scale-125 dark:text-gray-200 dark:hover:text-gray-400"><AiFillGithub /></a>
-              <a href="https://www.linkedin.com/in/alexandru-mo%C8%9B-b119021ba/" className="hover:text-black transition duration-500 md:scale-110 lg:scale-125 dark:text-gray-200 dark:hover:text-gray-400"><AiFillLinkedin /></a>
-            </div>
-
-            <div className="flex justify-center items-center ">
-              <button onClick={handleScroll} className="rounded-full border-2 p-3 border-gray-400 text-3xl md:text-4xl  text-teal-600 animate-bounce absolute bottom-10">
-                <AiOutlineArrowDown />
-              </button>
-            </div>
-            
-          </section>
-          <section className="px-10 ">
-            <div className="py-5 mt-96 flex flex-col items-center gap-20">
-              <h3 ref={ref} className="text-3xl py-1 dark:text-gray-200">About</h3>
-              <hr class="mb-6 rounded-xl h-1 w-5/6 bg-gray-200 border-0 dark:bg-gray-700" />
-              <Image src={Avatar} alt="Avatar" className="rounded-full w-72 md:w-96"/>
-              <p className="text-lg py-2 leading-8 text-gray-400 md:text-xl">
-                Since the beginning of my journey as a freelance <span className="text-teal-500">front-end developer</span>, I've done remote work for major companies.
-              </p>
-              
-            </div>
-          </section>
+          <Navbar handleScrollToSection={handleScrollToSection} refs={refs} />
+          <Start handleScrollToSection={handleScrollToSection} />
+          <About refs={refs} />
+          <Projects refs={refs} />
+          <Contact refs={refs} />
         </main>
     </>
   )
