@@ -19,7 +19,7 @@ function Start(props) {
 
       <div className="text-5xl text-gray-600 absolute bottom-40 flex justify-center gap-16 left-0 w-full">
         <a href="https://github.com/alexandrumot" className="hover:text-black transition duration-500 md:scale-110 lg:scale-125 dark:text-gray-200 dark:hover:text-gray-400"><AiFillGithub /></a>
-        <a href="https://www.linkedin.com/in/alexandru-mo%C8%9B-b119021ba/" className="hover:text-black transition duration-500 md:scale-110 lg:scale-125 dark:text-gray-200 dark:hover:text-gray-400"><AiFillLinkedin /></a>
+        <a href="www.linkedin.com/in/alexandru-mot" className="hover:text-black transition duration-500 md:scale-110 lg:scale-125 dark:text-gray-200 dark:hover:text-gray-400"><AiFillLinkedin /></a>
       </div>
 
       <div className="flex justify-center items-center ">
